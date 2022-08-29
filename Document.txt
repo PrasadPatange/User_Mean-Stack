@@ -1,0 +1,90 @@
+Backend :
+Nodejs ( ExpressJS ) :
+1) npm init
+2) npm install express 
+3) npm install mongoose
+4) npm install nodemon (already install)
+
+run : nodemon 
+
+index.js :
+=> All api create here using express get,post,put,delete methods.
+=> To convert string data into json use app.use(express.json()).
+
+config.js :
+=> Here we create connection between nodejs and mongodb (database) using middleware mongoose.
+
+userSchema.js :
+=> Here we create schema and model for table fields for validation (type) purpose.
+
+Api test using Thunder Client :
+
+for Post api :
+post => http://localhost:5000/
+json
+{
+    "name" : "prasad",
+    "age" : 23
+}
+
+for Get api :
+get =>  http://localhost:5000/
+
+for Get single data api :
+get =>  http://localhost:5000/4579565656568
+
+for Put api :
+put =>  http://localhost:5000/edit/4579565656568
+
+for Delete api :
+delete => http://localhost:5000/4579565656568
+
+
+What is REST Api : 
+Representational State Transfer (REST) is a software architectural style 
+that defines a set of constraints to be used for creating web services.
+
+CORS (Cross-origin resource sharing) :
+       This is a Node JS package, also known as the express js middleware. 
+       It allows enabling CORS with multiple options. It is available through the npm registry.
+
+     => npm i cors
+
+Frontend :
+Angular :
+create new project :
+=> ng new project_name
+
+create new component :
+=> ng g c component_name
+
+create new service :
+=> ng g s service_name
+
+install Bootstrap : 
+=> npm i bootstrap@5.2.0
+
+add file location in angular.json :
+=> "architect": {
+   "styles": [
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+          }
+
+install ngx-bootstrap modal :
+=> npm i ngx-bootstrap@8.0.0
+
+import module in app.module.ts :
+ => import { ModalModule } from 'ngx-bootstrap/modal'; 
+     imports: [
+    ModalModule.forRoot()
+  ],
+
+  user-list.component.ts :
+   import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+    modalRef!: BsModalRef;
+   constructor( private modalService: BsModalService ) { }

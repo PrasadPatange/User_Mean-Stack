@@ -1,0 +1,61 @@
+<div class="text-center mt-5 mx-5">
+    <table class="table table-dark table-hover  table-striped ">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of userList; let i = index;">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>
+                <button type="button" class="btn btn-secondary" (click)="openModal(template, item._id)">View</button>&nbsp;
+                <button type="button" class="btn btn-primary"  [routerLink]="['/edit', item._id]">Edit</button>&nbsp;
+                <button type="button" class="btn btn-danger" (click)="deleteData(item._id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+
+<!-- View Single User Details using Modal -->
+
+<ng-template #template>
+  <div class="modal-header">
+    <h5 class="modal-title pull-right">User Details :</h5>
+    <h5>
+      <marquee
+        >Welcome , <b>{{ UserSingleData.name }} !!</b></marquee
+      >
+    </h5>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      (click)="modalRef.hide()"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="row container">
+      <div class="text-center">
+        <h2>User Details :</h2>
+       
+        <h3>Name : {{ UserSingleData.name }}</h3>
+        <h3>Age : {{ UserSingleData.age }}</h3>
+      </div>
+     
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">
+      Close
+    </button>
+  </div>
+</ng-template>
+
